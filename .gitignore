@@ -3,3 +3,10 @@ STPAR_StreetParade/.vs/
 STPAR_StreetParade/bin/
 STPAR_StreetParade/obj/
 STPAR_StreetParade/Properties/
+PQueue_PrinterQueue/obj/
+
+PQueue_PrinterQueue/Properties/
+
+PQueue_PrinterQueue/App.config
+
+PQueue_PrinterQueue/PQueue_PrinterQueue.csproj
