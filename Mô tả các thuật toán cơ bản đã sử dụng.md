@@ -12,7 +12,7 @@ A* lưu giữ một tập các lời giải chưa hoàn chỉnh, nghĩa là các
 Trong đó, g(x) là chi phí của đường đi cho đến thời điểm hiện tại, nghĩa là tổng trọng số của các cạnh đã đi qua. h(x) là hàm đánh giá heuristic về chi phí nhỏ nhất để đến đích từ x. Ví dụ, nếu "chi phí" được tính là khoảng cách đã đi qua, khoảng cách đường chim bay giữa hai điểm trên một bản đồ là một đánh giá heuristic cho khoảng cách còn phải đi tiếp.
 
 Hàm f(x) có giá trị càng thấp thì độ ưu tiên của x càng cao (do đó có thể sử dụng một cấu trúc heap tối thiểu để cài đặt hàng đợi ưu tiên này).
-[Mô tả thuật toán A*](https://vi.wikipedia.org/wiki/T%E1%BA%ADp_tin:Astar_progress_animation.gif)
+![Mô tả thuật toán A*](https://vi.wikipedia.org/wiki/T%E1%BA%ADp_tin:Astar_progress_animation.gif)
 ```
 function A*(điểm_xuất_phát,đích)
     var đóng := tập rỗng
@@ -40,19 +40,19 @@ Với mỗi lần duyệt, ta tìm tất cả các cạnh mà đường đi qua 
 # Ví dụ
 Ta xét ví dụ với đồ thị có hướng sau (giả định các đường đi là một chiều, chỉ đi từ đỉnh có số thứ tự thấp hơn tới đỉnh có số thứ tự cao hơn, số có màu đỏ cạnh mỗi đỉnh là độ dài đường đi ngắn nhất từ gốc tới đỉnh đó, và đỉnh gốc là đỉnh 1):
 
-[cses-fi-bellmanford1](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford1.png)
+![cses-fi-bellmanford1](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford1.png)
 
 Thực hiện lần duyệt đầu tiên, ta cập nhật được đường đi ngắn nhất thông qua các cạnh (1, 2); (1, 3); (1, 4):
 
-[cses-fi-bellmanford2](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford2.png)
+![cses-fi-bellmanford2](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford2.png)
 
 Tương tự với lần duyệt thứ 2, cạnh (2, 5) và (3, 4) là các cạnh tối ưu:
 
-[cses-fi-bellmanford3](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford3.png)
+![cses-fi-bellmanford3](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford3.png)
 
 Với lần duyệt thứ 3, chỉ có cạnh (4, 5) cải tiến đường đi tối ưu:
 
-[cses-fi-bellmanford4](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford4.png)
+![cses-fi-bellmanford4](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford4.png)
 
 Tới lần duyệt thứ 4, ta thấy không còn cạnh nào có thể tối ưu hóa bất kỳ đường đi ngắn nhất nào nữa. Tới đây, ta hoàn toàn có thể dừng duyệt (vì chắc chắn việc không còn cạnh có thể tối ưu cũng đồng nghĩa với việc không có chu trình âm trong đồ thị).
 
