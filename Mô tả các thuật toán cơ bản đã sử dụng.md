@@ -1,3 +1,53 @@
+# Mô tả thuật toán Dijikstra [Tham khảo](https://viblo.asia/p/thuat-toan-tim-duong-di-ngan-nhat-dijkstra-gDVK2jL2KLj)
+
+## Ý tưởng trực quan
+Thuật toán Dijkstra cho phép tìm đường đi ngắn nhất từ một đỉnh s đến các đỉnh còn lại của đồ thị và chiều dài (trọng số ) tương ứng. Phương pháp của thuật toán là xác định tuần tự đỉnh có chiều dài đến s theo thứ tự tăng dần. Thuật toán được xây dựng trên cơ sở gán cho mỗi đỉnh các nhãn tạm thời. Nhãn tạm thời của các đỉnh cho biết cận trên của chiều dài đường đi ngắn nhất từ s đến đỉnh đó. Nhãn của các đỉnh sẽ biến đổi trong các bước lặp, mà ở mỗi bước lặp sẽ có một nhãn tạm thời trở thành chính thức. Nếu nhãn của một đỉnh nào đó trở thành chính thức thì đó cũng chính là chiều dài ngắn nhất của đường đi từ s đến đỉnh đó.
+
+## Mô tả thuật toán
+
+![Mô tả thuật toán](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-dijkstra7.png)
+
+```
+/**
+* Trong nay, cac dinh khong co canh noi voi nhau se co khoang cach la -1
+*/
+public int[] dijkstra(int[][] graph, int s){
+	int [] dist = new int[graph.length];
+	for(int i = 0; i < graph.length; i++){
+		dist[i] = Integer.MAX_VALUE;
+	}
+	dist[s] = 0;
+	int [] visit = new int[graph.length]; 
+	for(int i = 0; i < graph.length; i ++){
+		int v = closestVertice(graph[s], visit);
+		for(int j = 0; j < graph[v].length; j++){
+			if (graph[v][j] != -1){ // neu co canh noi giua v va j
+				int currentDist = dist[v] + graph[v][j];
+				if (currentDist < dist[j]){
+					dist[j] = currentDist;
+				}
+			}
+		}
+	}
+	return dist;
+}
+/**
+ * Chon ra dinh o gan s nhat va danh dau dinh do la da tham
+ * */
+public int closestVertice(int[] adjacentVertices, int[] visit){
+	int closest = -1;
+	int minDist = Integer.MAX_VALUE;
+	for(int i = 0; i < adjacentVertices.length; i ++){
+		if (visit[i] == 0 && adjacentVertices[i] < minDist){
+			closest = i;
+			minDist = adjacentVertices[i];
+		}
+	}
+	visit[closest] = 1;
+	return closest;
+}
+```
+
 # Mô tả thuật toán A* [Tham khảo](https://voer.edu.vn/m/giai-thuat-tim-kiem-a/d169b9dd)
 ## Ý tưởng trực quan
 Xét bài toán tìm đường - bài toán mà A* thường được dùng để giải. A* xây dựng tăng dần tất cả các tuyến đường từ điểm xuất phát cho tới khi nó tìm thấy một đường đi chạm tới đích. Tuy nhiên, cũng như tất cả các thuật toán tìm kiếm có thông tin (informed tìm kiếm thuật toán), nó chỉ xây dựng các tuyến đường "có vẻ" dẫn về phía đích.
