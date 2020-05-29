@@ -1,4 +1,4 @@
-# Mô tả thuật toán A*(https://voer.edu.vn/m/giai-thuat-tim-kiem-a/d169b9dd)
+# Mô tả thuật toán A* [Tham khảo](https://voer.edu.vn/m/giai-thuat-tim-kiem-a/d169b9dd)
 ## Ý tưởng trực quan
 Xét bài toán tìm đường - bài toán mà A* thường được dùng để giải. A* xây dựng tăng dần tất cả các tuyến đường từ điểm xuất phát cho tới khi nó tìm thấy một đường đi chạm tới đích. Tuy nhiên, cũng như tất cả các thuật toán tìm kiếm có thông tin (informed tìm kiếm thuật toán), nó chỉ xây dựng các tuyến đường "có vẻ" dẫn về phía đích.
 
@@ -12,7 +12,9 @@ A* lưu giữ một tập các lời giải chưa hoàn chỉnh, nghĩa là các
 Trong đó, g(x) là chi phí của đường đi cho đến thời điểm hiện tại, nghĩa là tổng trọng số của các cạnh đã đi qua. h(x) là hàm đánh giá heuristic về chi phí nhỏ nhất để đến đích từ x. Ví dụ, nếu "chi phí" được tính là khoảng cách đã đi qua, khoảng cách đường chim bay giữa hai điểm trên một bản đồ là một đánh giá heuristic cho khoảng cách còn phải đi tiếp.
 
 Hàm f(x) có giá trị càng thấp thì độ ưu tiên của x càng cao (do đó có thể sử dụng một cấu trúc heap tối thiểu để cài đặt hàng đợi ưu tiên này).
+
 ![Mô tả thuật toán A*](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
+
 ```
 function A*(điểm_xuất_phát,đích)
     var đóng := tập rỗng
@@ -29,7 +31,7 @@ function A*(điểm_xuất_phát,đích)
     đưa_vào_hàng_đợi(q, y)
     return failure
 ```
-# [Mô tả thuật toán Bellman-Ford](https://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Bellman-Ford)
+# Mô tả thuật toán Bellman-Ford [Tham khảo](https://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Bellman-Ford)
 ## Ý tưởng trực quan
 Ý tưởng thuật toán Bellman-Ford có tính tham lam:
 
