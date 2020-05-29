@@ -86,7 +86,9 @@ function A*(điểm_xuất_phát,đích)
 Ý tưởng thuật toán Bellman-Ford có tính tham lam:
 
 Ta thực hiện duyệt V lần, với V là số đỉnh của đồ thị.
+
 Với mỗi lần duyệt, ta tìm tất cả các cạnh mà đường đi qua cạnh đó sẽ rút ngắn đường đi ngắn nhất từ đỉnh gốc tới một đỉnh khác.
+
 Ở lần duyệt thứ V, nếu còn bất kỳ cạnh nào có thể rút ngắn đường đi, điều đó chứng tỏ đồ thị có chu trình âm, và ta kết thúc thuật toán.
 
 ## Ví dụ
