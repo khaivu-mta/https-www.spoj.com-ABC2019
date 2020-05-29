@@ -1,4 +1,4 @@
-### [Mô tả thuật toán A*](https://voer.edu.vn/m/giai-thuat-tim-kiem-a/d169b9dd)
+# Mô tả thuật toán A*(https://voer.edu.vn/m/giai-thuat-tim-kiem-a/d169b9dd)
 ## Ý tưởng trực quan
 Xét bài toán tìm đường - bài toán mà A* thường được dùng để giải. A* xây dựng tăng dần tất cả các tuyến đường từ điểm xuất phát cho tới khi nó tìm thấy một đường đi chạm tới đích. Tuy nhiên, cũng như tất cả các thuật toán tìm kiếm có thông tin (informed tìm kiếm thuật toán), nó chỉ xây dựng các tuyến đường "có vẻ" dẫn về phía đích.
 
@@ -12,7 +12,7 @@ A* lưu giữ một tập các lời giải chưa hoàn chỉnh, nghĩa là các
 Trong đó, g(x) là chi phí của đường đi cho đến thời điểm hiện tại, nghĩa là tổng trọng số của các cạnh đã đi qua. h(x) là hàm đánh giá heuristic về chi phí nhỏ nhất để đến đích từ x. Ví dụ, nếu "chi phí" được tính là khoảng cách đã đi qua, khoảng cách đường chim bay giữa hai điểm trên một bản đồ là một đánh giá heuristic cho khoảng cách còn phải đi tiếp.
 
 Hàm f(x) có giá trị càng thấp thì độ ưu tiên của x càng cao (do đó có thể sử dụng một cấu trúc heap tối thiểu để cài đặt hàng đợi ưu tiên này).
-![Mô tả thuật toán A*](https://vi.wikipedia.org/wiki/T%E1%BA%ADp_tin:Astar_progress_animation.gif)
+![Mô tả thuật toán A*](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
 ```
 function A*(điểm_xuất_phát,đích)
     var đóng := tập rỗng
@@ -29,15 +29,15 @@ function A*(điểm_xuất_phát,đích)
     đưa_vào_hàng_đợi(q, y)
     return failure
 ```
-### [Mô tả thuật toán Bellman-Ford](https://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Bellman-Ford)
-# Ý tưởng trực quan
+# [Mô tả thuật toán Bellman-Ford](https://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Bellman-Ford)
+## Ý tưởng trực quan
 Ý tưởng thuật toán Bellman-Ford có tính tham lam:
 
 Ta thực hiện duyệt V lần, với V là số đỉnh của đồ thị.
 Với mỗi lần duyệt, ta tìm tất cả các cạnh mà đường đi qua cạnh đó sẽ rút ngắn đường đi ngắn nhất từ đỉnh gốc tới một đỉnh khác.
 Ở lần duyệt thứ V, nếu còn bất kỳ cạnh nào có thể rút ngắn đường đi, điều đó chứng tỏ đồ thị có chu trình âm, và ta kết thúc thuật toán.
 
-# Ví dụ
+## Ví dụ
 Ta xét ví dụ với đồ thị có hướng sau (giả định các đường đi là một chiều, chỉ đi từ đỉnh có số thứ tự thấp hơn tới đỉnh có số thứ tự cao hơn, số có màu đỏ cạnh mỗi đỉnh là độ dài đường đi ngắn nhất từ gốc tới đỉnh đó, và đỉnh gốc là đỉnh 1):
 
 ![cses-fi-bellmanford1](https://thuytrangcoding.files.wordpress.com/2018/03/cses-fi-bellmanford1.png)
@@ -56,7 +56,7 @@ Với lần duyệt thứ 3, chỉ có cạnh (4, 5) cải tiến đường đi 
 
 Tới lần duyệt thứ 4, ta thấy không còn cạnh nào có thể tối ưu hóa bất kỳ đường đi ngắn nhất nào nữa. Tới đây, ta hoàn toàn có thể dừng duyệt (vì chắc chắn việc không còn cạnh có thể tối ưu cũng đồng nghĩa với việc không có chu trình âm trong đồ thị).
 
-# Mô tả thuật toán
+## Mô tả thuật toán
 ```
 function BellmanFord(danh_sách_đỉnh, danh_sách_cung, nguồn)
    // hàm yêu cầu đồ thị đưa vào dưới dạng một danh sách đỉnh, một danh sách cung
