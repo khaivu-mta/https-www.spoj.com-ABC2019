@@ -1,5 +1,5 @@
 Mô tả thuậy toán A*
-///
+\\\
 function A*(điểm_xuất_phát,đích)
     var đóng := tập rỗng
     var q := tạo_hàng_đợi(tạo_đường_đi(điểm_xuất_phát))
@@ -14,4 +14,4 @@ function A*(điểm_xuất_phát,đích)
     foreach y in các_đường_đi_tiếp_theo(p)
     đưa_vào_hàng_đợi(q, y)
     return failure
-///
+\\\ 
